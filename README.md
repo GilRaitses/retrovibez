@@ -13,23 +13,18 @@ Automated end-to-end pipeline for detecting and analyzing reverse crawling behav
 
 ## Quick Start
 
-```bash
-# First time: install all dependencies
-python launch.py install
+### Just double-click `LAUNCH` to run.
 
-# Run analysis
-python launch.py
-```
+| Your OS | Double-click this file |
+|---------|------------------------|
+| Windows | `LAUNCH.bat` |
+| macOS | `LAUNCH.command` |
+| Linux | Run `./LAUNCH.sh` |
 
-That's it. Works on Windows, macOS, and Linux.
-
-### Alternative Platform-Specific Launchers
-
-| Platform | Launcher |
-|----------|----------|
-| Windows | `retrovibez.bat` or double-click |
-| macOS | `retrovibez.command` (double-click in Finder) |
-| Linux | `./retrovibez.sh` |
+The launcher will:
+1. Check your system requirements
+2. Show any missing dependencies with install instructions
+3. Start the interactive analysis pipeline
 
 ---
 
