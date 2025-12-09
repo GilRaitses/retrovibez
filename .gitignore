@@ -1,0 +1,54 @@
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+build/
+develop-eggs/
+dist/
+downloads/
+eggs/
+.eggs/
+lib/
+lib64/
+parts/
+sdist/
+var/
+wheels/
+*.egg-info/
+.installed.cfg
+*.egg
+
+# Virtual environments
+venv/
+ENV/
+env/
+
+# IDE
+.idea/
+.vscode/
+*.swp
+*.swo
+*~
+
+# Output files (don't commit analysis results)
+results/
+figures/
+*.h5
+*.pdf
+*.html
+!README.md
+!CITATION.md
+
+# Logs
+*.log
+
+# OS
+.DS_Store
+Thumbs.db
+
+# MATLAB
+*.asv
+*.m~
+

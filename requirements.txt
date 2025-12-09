@@ -1,0 +1,5 @@
+# Mason Analysis Pipeline - Python Dependencies
+numpy>=1.20.0
+matplotlib>=3.5.0
+h5py>=3.0.0
+
