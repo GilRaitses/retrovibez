@@ -107,58 +107,7 @@
         #title-gradient-overlay,
         #title-gradient-overlay-2,
         #title-gradient-overlay-3 {
-            position: absolute;
-            inset: -400%;
-            width: 1800%;
-            height: 1800%;
-            pointer-events: none;
-            z-index: 1;
-        }
-
-        #title-gradient-overlay {
-            opacity: 0.15;
-            background: conic-gradient(from 0deg,
-                    rgba(255, 0, 255, 0.1) 0%,
-                    rgba(0, 255, 255, 0.08) 25%,
-                    rgba(255, 0, 255, 0.1) 50%,
-                    rgba(0, 255, 255, 0.08) 75%,
-                    rgba(255, 0, 255, 0.1) 100%);
-            filter: blur(160px);
-            animation: spinGradient 60s linear infinite;
-        }
-
-        #title-gradient-overlay-2 {
-            opacity: 0.1;
-            background: conic-gradient(from 180deg,
-                    rgba(0, 255, 255, 0.08) 0%,
-                    rgba(255, 0, 255, 0.1) 50%,
-                    rgba(0, 255, 255, 0.08) 100%);
-            filter: blur(200px);
-            animation: spinGradientCounter 90s linear infinite;
-        }
-
-        #title-gradient-overlay-3 {
-            opacity: 0.08;
-            background: radial-gradient(circle at 50% 50%,
-                    rgba(255, 0, 255, 0.15) 0%,
-                    transparent 50%);
-            filter: blur(100px);
-            animation: pulseGradient 4s ease-in-out infinite;
-        }
-
-        @keyframes spinGradient {
-            from { transform: rotate(0deg); }
-            to { transform: rotate(360deg); }
-        }
-
-        @keyframes spinGradientCounter {
-            from { transform: rotate(360deg); }
-            to { transform: rotate(0deg); }
-        }
-
-        @keyframes pulseGradient {
-            0%, 100% { transform: scale(1); opacity: 0.08; }
-            50% { transform: scale(1.2); opacity: 0.15; }
+            display: none;
         }
 
         #menu-container {
