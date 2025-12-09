@@ -299,9 +299,10 @@
             width: 100%;
             overflow: hidden;
             white-space: nowrap;
-            font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
-            font-size: 14px;
-            color: #666;
+            font-family: 'Avenir Next', 'Avenir', -apple-system, sans-serif;
+            font-size: 13px;
+            font-weight: 300;
+            letter-spacing: 1px;
             z-index: 5;
             pointer-events: none;
         }
@@ -309,12 +310,20 @@
         #scrolling-about-content {
             display: inline-block;
             white-space: nowrap;
-            animation: scrollText 32s linear infinite;
+            animation: scrollText 32s linear infinite, colorCycle 8s ease-in-out infinite;
         }
 
         @keyframes scrollText {
             0% { transform: translateX(100%); }
             100% { transform: translateX(-100%); }
+        }
+
+        @keyframes colorCycle {
+            0% { color: #ff00ff; text-shadow: 0 0 8px rgba(255, 0, 255, 0.4); }
+            25% { color: #00ffff; text-shadow: 0 0 8px rgba(0, 255, 255, 0.4); }
+            50% { color: #ff1493; text-shadow: 0 0 8px rgba(255, 20, 147, 0.4); }
+            75% { color: #00ffff; text-shadow: 0 0 8px rgba(0, 255, 255, 0.4); }
+            100% { color: #ff00ff; text-shadow: 0 0 8px rgba(255, 0, 255, 0.4); }
         }
 
         @media (max-width: 768px) {
