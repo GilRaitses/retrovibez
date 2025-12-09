@@ -2,6 +2,18 @@
 
 **Larval Reversal Detection Pipeline** | v1.0.1
 
+## Description
+
+**Purpose:** Automated detection and analysis of reverse crawling in *Drosophila* larvae.
+
+**Core Functionality:** Reversal detection (SpeedRunVel < 0), MAGAT data processing, and a four-stage analysis pipeline (MATLAB, Python figure generation, QMD report, rendering).
+
+**Features:** Cross-platform, interactive CLI, flexible track selection, auto-detection of data structures, and parallel figure generation.
+
+**Output:** Structured results with HDF5, PNG, PDF, and HTML reports.
+
+---
+
 Automated end-to-end pipeline for detecting and analyzing reverse crawling behavior in *Drosophila* larvae. Computes heading-velocity dot products, identifies reversal events, generates trajectory visualizations, and renders PDF/HTML reports.
 
 **Author:** Gil Raitses  
