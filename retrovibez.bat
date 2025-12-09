@@ -26,10 +26,14 @@ if "%1"=="check" (
 )
 
 if "%1"=="install" (
-    echo Installing dependencies...
+    echo ============================================================
+    echo   Installing RetroVibez Dependencies
+    echo ============================================================
+    echo.
+    echo [1/4] Python packages...
     pip install -r requirements.txt
     echo.
-    echo Checking Quarto...
+    echo [2/4] Checking Quarto...
     where quarto >nul 2>&1
     if errorlevel 1 (
         echo Quarto not found. Installing via winget...
@@ -37,6 +41,14 @@ if "%1"=="install" (
     ) else (
         echo Quarto already installed.
     )
+    echo.
+    echo [3/4] Installing TinyTeX for PDF rendering...
+    quarto install tinytex --update-path
+    echo.
+    echo [4/4] Verifying installation...
+    python retrovibez_cli.py check
+    echo.
+    echo Installation complete!
     goto :end
 )
 

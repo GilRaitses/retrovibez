@@ -1,11 +1,11 @@
-# RetroVibez 🔄
+# RetroVibez
 
 **Larval Reversal Detection Pipeline** | v1.0.0
 
 Automated end-to-end pipeline for detecting and analyzing reverse crawling behavior in *Drosophila* larvae. Computes heading-velocity dot products, identifies reversal events, generates trajectory visualizations, and renders PDF/HTML reports.
 
 **Author:** Gil Raitses  
-**Lab:** Bhattacharya Lab (Mirna Lab), BioInspired Institute, Syracuse University  
+**Lab:** Skanata Lab (Mirna Mihovilovic-Skanata), BioInspired Institute, Syracuse University  
 **Date:** December 9, 2025  
 **License:** MIT (see [LICENSE](LICENSE))
 
@@ -56,14 +56,17 @@ When `SpeedRunVel < 0` for ≥3 seconds, a reversal event is recorded.
 
 ## Requirements
 
-| Component | Version | Check |
+| Component | Purpose | Check |
 |-----------|---------|-------|
-| Python | >= 3.8 | `python --version` |
-| MATLAB | Any recent | `matlab -batch "disp('ok')"` |
-| Quarto | >= 1.3 | `quarto --version` |
-| numpy | >= 1.20 | `pip show numpy` |
-| matplotlib | >= 3.5 | `pip show matplotlib` |
-| h5py | >= 3.0 | `pip show h5py` |
+| Python >= 3.8 | Core runtime | `python --version` |
+| MATLAB | Analysis engine | `matlab -batch "disp('ok')"` |
+| Quarto >= 1.3 | Report rendering | `quarto --version` |
+| TinyTeX | LaTeX for PDF | `quarto check` |
+| Pandoc | Doc conversion | (bundled with Quarto) |
+| numpy >= 1.20 | Numerics | `pip show numpy` |
+| matplotlib >= 3.5 | Plotting | `pip show matplotlib` |
+| h5py >= 3.0 | HDF5 files | `pip show h5py` |
+| jupyter >= 1.0 | QMD execution | `pip show jupyter` |
 
 ## Installation
 
@@ -71,12 +74,14 @@ When `SpeedRunVel < 0` for ≥3 seconds, a reversal event is recorded.
 ```powershell
 pip install -r requirements.txt
 winget install Posit.Quarto --accept-source-agreements --accept-package-agreements
+quarto install tinytex --update-path
 ```
 
 ### macOS
 ```bash
 pip3 install -r requirements.txt
 brew install quarto
+quarto install tinytex --update-path
 ```
 
 ### Linux (Debian/Ubuntu)
@@ -84,6 +89,7 @@ brew install quarto
 pip3 install -r requirements.txt
 # Download Quarto .deb from https://quarto.org/docs/download/
 sudo dpkg -i quarto-*.deb
+quarto install tinytex --update-path
 ```
 
 ### Verify Installation

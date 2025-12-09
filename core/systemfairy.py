@@ -19,7 +19,7 @@ def check_python_version():
 
 def check_python_packages():
     """Check required Python packages are installed"""
-    required = ['numpy', 'matplotlib', 'h5py']
+    required = ['numpy', 'matplotlib', 'h5py', 'jupyter']
     missing = []
     installed = []
     
@@ -86,6 +86,31 @@ def check_quarto():
     return ok, detail
 
 
+def check_tinytex():
+    """Check TinyTeX is installed (for PDF rendering)"""
+    try:
+        result = subprocess.run(
+            ['quarto', 'check'],
+            capture_output=True,
+            text=True,
+            timeout=30
+        )
+        # Check if TinyTeX or LaTeX is mentioned as OK
+        output = result.stdout + result.stderr
+        if 'tinytex' in output.lower() or 'latex' in output.lower():
+            if 'OK' in output or 'installed' in output.lower():
+                return True, "TinyTeX installed"
+        
+        # Try to find tlmgr (TeX Live Manager)
+        tlmgr_path = shutil.which('tlmgr')
+        if tlmgr_path:
+            return True, f"TeX distribution found: {tlmgr_path}"
+        
+        return False, "Not installed (run: quarto install tinytex)"
+    except Exception:
+        return False, "Could not check (run: quarto install tinytex)"
+
+
 def check_magat_codebase():
     """Check if MAGAT codebase is accessible (for MATLAB classes)"""
     # Check common locations
@@ -144,6 +169,12 @@ def run_systemfairy(verbose=True):
     if not ok:
         missing.append('quarto')
     
+    # TinyTeX (for PDF)
+    ok, detail = check_tinytex()
+    checks.append(('TinyTeX (PDF)', ok, detail))
+    if not ok:
+        missing.append('tinytex')
+    
     # MAGAT codebase
     ok, detail = check_magat_codebase()
     checks.append(('MAGAT codebase', ok, detail))
@@ -187,6 +218,11 @@ def run_systemfairy(verbose=True):
                 print("  Quarto (non-interactive):")
                 print("    winget install Posit.Quarto --accept-source-agreements --accept-package-agreements")
                 print("    # Or download from: https://quarto.org/docs/download/")
+                print()
+            
+            if 'tinytex' in missing:
+                print("  TinyTeX (for PDF rendering):")
+                print("    quarto install tinytex --update-path")
                 print()
             
             print("-" * 60)

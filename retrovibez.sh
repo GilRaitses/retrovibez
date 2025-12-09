@@ -22,10 +22,14 @@ case "$1" in
         python3 retrovibez_cli.py check
         ;;
     install)
-        echo "Installing Python dependencies..."
+        echo "============================================================"
+        echo "  Installing RetroVibez Dependencies"
+        echo "============================================================"
+        echo
+        echo "[1/4] Python packages..."
         pip3 install -r requirements.txt
         echo
-        echo "Checking Quarto..."
+        echo "[2/4] Checking Quarto..."
         if ! command -v quarto &> /dev/null; then
             echo "Quarto not found. Install from: https://quarto.org/docs/download/"
             echo "  Mac: brew install quarto"
@@ -33,6 +37,14 @@ case "$1" in
         else
             echo "Quarto installed: $(quarto --version)"
         fi
+        echo
+        echo "[3/4] Installing TinyTeX for PDF rendering..."
+        quarto install tinytex --update-path
+        echo
+        echo "[4/4] Verifying installation..."
+        python3 retrovibez_cli.py check
+        echo
+        echo "Installation complete!"
         ;;
     help|--help|-h)
         echo "Usage:"

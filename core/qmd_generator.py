@@ -52,21 +52,28 @@ def generate_qmd_report(results_dir: Path, figures_dir: Path, output_dir: Path) 
     # Build QMD content
     qmd_lines = []
     
-    # YAML header
+    # YAML header with Tokyo Night theme
     qmd_lines.append('---')
-    qmd_lines.append(f'title: "Mason Reversal Analysis: {experiment_name}"')
+    qmd_lines.append(f'title: "RetroVibez Analysis: {experiment_name}"')
     qmd_lines.append(f'subtitle: "Timestamp: {timestamp}"')
     qmd_lines.append(f'date: "{datetime.now().strftime("%Y-%m-%d")}"')
+    qmd_lines.append('highlight-style: templates/tokyo-night.theme')
     qmd_lines.append('format:')
     qmd_lines.append('  pdf:')
     qmd_lines.append('    toc: true')
     qmd_lines.append('    toc-depth: 2')
     qmd_lines.append('    geometry:')
     qmd_lines.append('      - margin=1in')
+    qmd_lines.append('    code-block-bg: "#1a1b26"')
+    qmd_lines.append('    code-block-border-left: "#7aa2f7"')
     qmd_lines.append('  html:')
     qmd_lines.append('    toc: true')
     qmd_lines.append('    toc-depth: 2')
     qmd_lines.append('    embed-resources: true')
+    qmd_lines.append('    theme:')
+    qmd_lines.append('      dark: darkly')
+    qmd_lines.append('    code-block-bg: "#1a1b26"')
+    qmd_lines.append('    code-block-border-left: "#7aa2f7"')
     qmd_lines.append('---')
     qmd_lines.append('')
     

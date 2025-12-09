@@ -32,7 +32,7 @@ Original behavioral data available at:
 
 If you use RetroVibez specifically:
 
-> Raitses, G. (2025). RetroVibez: Larval Reversal Detection Pipeline. Bhattacharya Lab (Mirna Lab), BioInspired Institute, Syracuse University. https://github.com/GilRaitses/retrovibez
+> Raitses, G. (2025). RetroVibez: Larval Reversal Detection Pipeline. Skanata Lab, BioInspired Institute, Syracuse University. https://github.com/SkanataLab/retrovibez
 
 **BibTeX:**
 ```bibtex
@@ -41,8 +41,8 @@ If you use RetroVibez specifically:
   title = {RetroVibez: Larval Reversal Detection Pipeline},
   year = {2025},
   month = {December},
-  institution = {Bhattacharya Lab (Mirna Lab), BioInspired Institute, Syracuse University},
-  url = {https://github.com/GilRaitses/retrovibez}
+  institution = {Skanata Lab (Mirna Mihovilovic-Skanata), BioInspired Institute, Syracuse University},
+  url = {https://github.com/SkanataLab/retrovibez}
 }
 ```
 
