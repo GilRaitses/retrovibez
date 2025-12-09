@@ -13,26 +13,23 @@ Automated end-to-end pipeline for detecting and analyzing reverse crawling behav
 
 ## Quick Start
 
-### Windows
-```cmd
-retrovibez.bat install   # First time: install dependencies
-retrovibez.bat           # Run analysis
+```bash
+# First time: install all dependencies
+python launch.py install
+
+# Run analysis
+python launch.py
 ```
 
-### macOS
-```bash
-chmod +x retrovibez.command retrovibez.sh
-./retrovibez.sh install  # First time: install dependencies
-./retrovibez.sh          # Run analysis
-# Or double-click retrovibez.command in Finder
-```
+That's it. Works on Windows, macOS, and Linux.
 
-### Linux
-```bash
-chmod +x retrovibez.sh
-./retrovibez.sh install  # First time: install dependencies
-./retrovibez.sh          # Run analysis
-```
+### Alternative Platform-Specific Launchers
+
+| Platform | Launcher |
+|----------|----------|
+| Windows | `retrovibez.bat` or double-click |
+| macOS | `retrovibez.command` (double-click in Finder) |
+| Linux | `./retrovibez.sh` |
 
 ---
 
