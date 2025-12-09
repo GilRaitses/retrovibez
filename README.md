@@ -60,6 +60,7 @@ When `SpeedRunVel < 0` for ≥3 seconds, a reversal event is recorded.
 |-----------|---------|-------|
 | Python >= 3.8 | Core runtime | `python --version` |
 | MATLAB | Analysis engine | `matlab -batch "disp('ok')"` |
+| MATLAB Engine | Python-MATLAB bridge | `python -c "import matlab.engine"` |
 | Quarto >= 1.3 | Report rendering | `quarto --version` |
 | TinyTeX | LaTeX for PDF | `quarto check` |
 | Pandoc | Doc conversion | (bundled with Quarto) |
@@ -72,21 +73,42 @@ When `SpeedRunVel < 0` for ≥3 seconds, a reversal event is recorded.
 
 ### Windows (Non-Interactive)
 ```powershell
+# Python packages
 pip install -r requirements.txt
+
+# MATLAB Engine for Python (run from admin PowerShell)
+cd "C:\Program Files\MATLAB\R2024a\extern\engines\python"
+python -m pip install .
+
+# Quarto + TinyTeX
 winget install Posit.Quarto --accept-source-agreements --accept-package-agreements
 quarto install tinytex --update-path
 ```
 
 ### macOS
 ```bash
+# Python packages
 pip3 install -r requirements.txt
+
+# MATLAB Engine for Python
+cd /Applications/MATLAB_R2024a.app/extern/engines/python
+python3 -m pip install .
+
+# Quarto + TinyTeX
 brew install quarto
 quarto install tinytex --update-path
 ```
 
 ### Linux (Debian/Ubuntu)
 ```bash
+# Python packages
 pip3 install -r requirements.txt
+
+# MATLAB Engine for Python
+cd /usr/local/MATLAB/R2024a/extern/engines/python
+sudo python3 -m pip install .
+
+# Quarto + TinyTeX
 # Download Quarto .deb from https://quarto.org/docs/download/
 sudo dpkg -i quarto-*.deb
 quarto install tinytex --update-path

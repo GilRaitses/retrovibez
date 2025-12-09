@@ -63,6 +63,15 @@ def check_matlab():
     return ok, detail
 
 
+def check_matlab_engine():
+    """Check MATLAB Engine for Python is installed"""
+    try:
+        import matlab.engine
+        return True, "Installed"
+    except ImportError:
+        return False, "Not installed (install from MATLAB/extern/engines/python)"
+
+
 def check_quarto():
     """Check Quarto is installed"""
     quarto_path = shutil.which('quarto')
@@ -163,6 +172,12 @@ def run_systemfairy(verbose=True):
     if not ok:
         missing.append('matlab')
     
+    # MATLAB Engine for Python
+    ok, detail = check_matlab_engine()
+    checks.append(('MATLAB Engine', ok, detail))
+    if not ok:
+        missing.append('matlab_engine')
+    
     # Quarto
     ok, detail = check_quarto()
     checks.append(('Quarto', ok, detail))
@@ -212,6 +227,15 @@ def run_systemfairy(verbose=True):
                 print("  MATLAB:")
                 print("    Install from https://www.mathworks.com/products/matlab.html")
                 print("    Ensure 'matlab' is in your PATH")
+                print()
+            
+            if 'matlab_engine' in missing:
+                print("  MATLAB Engine for Python:")
+                print("    cd \"<MATLAB_ROOT>/extern/engines/python\"")
+                print("    python -m pip install .")
+                print("    # Windows: C:\\Program Files\\MATLAB\\R2024a\\extern\\engines\\python")
+                print("    # macOS:   /Applications/MATLAB_R2024a.app/extern/engines/python")
+                print("    # Linux:   /usr/local/MATLAB/R2024a/extern/engines/python")
                 print()
             
             if 'quarto' in missing:

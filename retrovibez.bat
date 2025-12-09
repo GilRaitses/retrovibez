@@ -30,10 +30,10 @@ if "%1"=="install" (
     echo   Installing RetroVibez Dependencies
     echo ============================================================
     echo.
-    echo [1/4] Python packages...
+    echo [1/5] Python packages...
     pip install -r requirements.txt
     echo.
-    echo [2/4] Checking Quarto...
+    echo [2/5] Checking Quarto...
     where quarto >nul 2>&1
     if errorlevel 1 (
         echo Quarto not found. Installing via winget...
@@ -42,10 +42,22 @@ if "%1"=="install" (
         echo Quarto already installed.
     )
     echo.
-    echo [3/4] Installing TinyTeX for PDF rendering...
+    echo [3/5] Installing TinyTeX for PDF rendering...
     quarto install tinytex --update-path
     echo.
-    echo [4/4] Verifying installation...
+    echo [4/5] Checking MATLAB Engine for Python...
+    python -c "import matlab.engine" 2>nul
+    if errorlevel 1 (
+        echo.
+        echo MATLAB Engine not found. Install manually:
+        echo   cd "C:\Program Files\MATLAB\R2024a\extern\engines\python"
+        echo   python -m pip install .
+        echo.
+    ) else (
+        echo MATLAB Engine already installed.
+    )
+    echo.
+    echo [5/5] Verifying installation...
     python retrovibez_cli.py check
     echo.
     echo Installation complete!
